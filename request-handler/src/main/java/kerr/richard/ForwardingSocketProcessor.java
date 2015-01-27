@@ -1,6 +1,9 @@
 package kerr.richard;
 
-import java.io.*;
+import kerr.richard.socket.SocketProcessor;
+import kerr.richard.socket.SocketProcessorFactory;
+
+import java.io.IOException;
 import java.net.Socket;
 
 /**
@@ -50,7 +53,7 @@ public class ForwardingSocketProcessor implements SocketProcessor {
         @Override
         public Runnable getSocketProcessorRunnable(Socket socket) throws IOException {
             Socket to = new Socket(ip, port);
-            return new ForwardingSocketProcessor(new SocketForwarder(socket,to), new SocketForwarder(to,socket) );
+            return new ForwardingSocketProcessor(new SocketForwarder(socket, to), new SocketForwarder(to, socket));
         }
     }
 }

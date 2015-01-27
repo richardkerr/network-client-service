@@ -1,4 +1,4 @@
-package kerr.richard;
+package kerr.richard.socket;
 
 /**
  * @author Richard Kerr

@@ -1,4 +1,4 @@
-package kerr.richard;
+package kerr.richard.socket;
 
 import java.io.IOException;
 import java.net.Socket;

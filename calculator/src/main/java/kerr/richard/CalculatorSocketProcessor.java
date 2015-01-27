@@ -1,5 +1,6 @@
 package kerr.richard;
 
+import kerr.richard.socket.SocketProcessorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,7 +39,7 @@ public class CalculatorSocketProcessor implements Runnable {
             e.printStackTrace();
         } finally {
             try {
-                if(!socket.isClosed()) {
+                if (!socket.isClosed()) {
                     LOGGER.info("Closing socket: {}", socket.getLocalPort());
                     socket.close();
                 }

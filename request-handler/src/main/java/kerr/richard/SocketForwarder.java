@@ -1,5 +1,6 @@
 package kerr.richard;
 
+import kerr.richard.socket.SocketProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,7 +12,6 @@ import java.net.Socket;
  */
 class SocketForwarder implements SocketProcessor {
     private static final Logger LOGGER = LoggerFactory.getLogger(SocketForwarder.class);
-
     private final Socket source;
     private final Socket target;
 

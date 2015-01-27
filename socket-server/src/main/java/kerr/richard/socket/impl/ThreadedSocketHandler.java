@@ -1,8 +1,11 @@
-package kerr.richard;
+package kerr.richard.socket.impl;
+
+import kerr.richard.socket.SocketHandler;
+import kerr.richard.socket.SocketProcessorFactory;
 
 import java.io.IOException;
 import java.net.Socket;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutorService;
 
 /**
  * @author Richard Kerr
