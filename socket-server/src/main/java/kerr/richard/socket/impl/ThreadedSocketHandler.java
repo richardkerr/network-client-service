@@ -11,12 +11,16 @@ import java.util.concurrent.ExecutorService;
  * @author Richard Kerr
  */
 public class ThreadedSocketHandler implements SocketHandler {
-    private final SocketProcessorFactory socketProcessorFactory;
-    ExecutorService executorService;
+    private SocketProcessorFactory socketProcessorFactory;
+    private ExecutorService executorService;
 
     public ThreadedSocketHandler(SocketProcessorFactory socketProcessorFactory, ExecutorService executorService) {
         this.socketProcessorFactory = socketProcessorFactory;
         this.executorService = executorService;
+    }
+
+    public ThreadedSocketHandler() {
+
     }
 
     @Override

@@ -23,7 +23,7 @@ public class CalculatorHandler {
     }
 
     public static void main(String[] args) throws IOException {
-        SocketProcessorFactory factory = new CalculatorSocketProcessor.CalculatorSocketProcessorFactory();
+        SocketProcessorFactory factory = new CalculatorSocketProcessorFactory();
         ExecutorService executorService = new ThreadPoolExecutor(5, 100, 10, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(100));
         SocketHandler socketHandler = new ThreadedSocketHandler(factory, executorService);
         CalculatorHandler calculator = new CalculatorHandler(socketHandler);

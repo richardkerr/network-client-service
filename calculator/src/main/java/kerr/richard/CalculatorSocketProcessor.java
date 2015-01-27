@@ -49,10 +49,4 @@ public class CalculatorSocketProcessor implements Runnable {
         }
     }
 
-    public static class CalculatorSocketProcessorFactory implements SocketProcessorFactory {
-        @Override
-        public Runnable getSocketProcessorRunnable(Socket socket) {
-            return new CalculatorSocketProcessor(socket);
-        }
-    }
 }

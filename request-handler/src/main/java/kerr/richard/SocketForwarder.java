@@ -22,7 +22,7 @@ class SocketForwarder implements SocketProcessor {
 
     @Override
     public void run() {
-        try {
+        try(Socket src = source; Socket tgt = target) {
             BufferedReader reader = new BufferedReader(new InputStreamReader(source.getInputStream()));
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(target.getOutputStream()));
 
