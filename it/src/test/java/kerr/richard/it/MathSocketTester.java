@@ -7,12 +7,15 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.Callable;
 
 
 /**
  * @author Richard Kerr
  */
-public class MathSocketTester implements Runnable {
+public class MathSocketTester implements Callable<Exception> {
+
+    public static volatile Exception exception = null;
 
     private static final List<Pair> questionResponsePair = new ArrayList<>();
 
@@ -34,7 +37,7 @@ public class MathSocketTester implements Runnable {
     }
 
     @Override
-    public void run() {
+    public Exception call() {
         Random random = new Random();
         Pair p;
         String response;
@@ -47,14 +50,12 @@ public class MathSocketTester implements Runnable {
                 writer.newLine();
                 writer.flush();
                 response = reader.readLine();
-                Assert.assertEquals(p.response, response);
             }
         } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            return e;
         } catch (InterruptedException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            return null;
         }
-
     }
 
     private static class Pair {
