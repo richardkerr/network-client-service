@@ -1,5 +1,6 @@
 package kerr.richard;
 
+import kerr.richard.socket.SocketProcessor;
 import kerr.richard.socket.SocketProcessorFactory;
 
 import java.net.Socket;
@@ -9,7 +10,7 @@ import java.net.Socket;
 */
 public class CalculatorSocketProcessorFactory implements SocketProcessorFactory {
     @Override
-    public Runnable getSocketProcessorRunnable(Socket socket) {
-        return new CalculatorSocketProcessor(socket);
+    public SocketProcessor getSocketProcessorRunnable(Socket socket) {
+        return new CalculatorSocketProcessor(socket, Calculator.INSTANCE);
     }
 }

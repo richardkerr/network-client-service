@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.net.Socket;
+import java.net.SocketException;
 
 /**
  * @author Richard Kerr
@@ -32,6 +33,11 @@ class SocketForwarder implements SocketProcessor {
                 writer.write(inLine + "\n");
                 writer.flush();
             }
+        } catch (SocketException e) {
+            boolean sourceConnected = source.isConnected();
+            LOGGER.info("A forwarded socket ({}) was closed ({})",
+                    !sourceConnected ? source.getRemoteSocketAddress() : target.getRemoteSocketAddress(),
+                    e.getMessage());
         } catch (IOException e) {
             e.printStackTrace();
         }

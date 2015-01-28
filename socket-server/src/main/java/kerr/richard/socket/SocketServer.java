@@ -8,6 +8,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
+ * SocketServer provides some utility to manage a {@link ServerSocket} instance
+ * and distribute new {@link Socket} instances to the given {@link SocketHandler}
+ *
  * @author Richard Kerr
  */
 public class SocketServer {

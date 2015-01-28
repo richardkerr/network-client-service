@@ -12,6 +12,12 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * Application entry point for the 'first server'
+ *
+ * Instanciates the required {@link ExecutorService}, {@link SocketProcessorFactory},
+ * {@link SocketHandler}, {@link RequestHandler} and {@link SocketServer} objects and
+ * finally starts the application running.
+ *
  * @author Richard Kerr
  */
 public class RequestHandler {

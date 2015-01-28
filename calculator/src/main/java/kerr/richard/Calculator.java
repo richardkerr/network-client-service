@@ -12,6 +12,9 @@ import java.util.Stack;
  * @author Richard Kerr
  */
 public class Calculator {
+    static Calculator INSTANCE = new Calculator();
+
+    private Calculator calculator;
     /**
      * Handles maths expressions, for full details on the handling of syntax
      * refer to {@see <a href="http://www.objecthunter.net/exp4j"/>http://www.objecthunter.net/exp4j/</a>}
